@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <body>
+
+ <h1 style="text-align: center; font-weight: bolder; font-style:italic ;">Traffic Signal</h1>
+<table>
+<tr>
+  <div style="background:black;width:75px;height:150px;margin:auto;">
+   <div id ="redlight" style="background:#ff0000;width:40px;height:40px;border-radius:40px;margin:auto;"></div>
+   <div id = "yellow" style="background:#3F4A00;width:40px;height:40px;border-radius:40px    ;margin:auto"></div>
+   <div id = "green" style="background:#044A00;width:40px;height:40px;border-radius:40px;margin:auto"></div>
+   <button onclick="stop()" style="width:75px;height:30px;margin:auto">Stop</button>
+ </div>
+  <div style="background:black;width:75px;height:150px;margin:auto;">
+   <div id ="red" style="background:#ff0000;width:40px;height:40px;border-radius:40px;margin:auto;"></div>
+   <div id = "yellowlight" style="background:#3F4A00;width:40px;height:40px;border-radius:40px    ;margin:auto"></div>
+   <div id = "green" style="background:#044A00;width:40px;height:40px;border-radius:40px;margin:auto"></div>
+   <button onclick="Ready()" style="width:75px;height:30px;margin:auto">Ready</button>
+ </div>
+  <div style="background:black;width:75px;height:150px;margin:auto;">
+   <div id ="red" style="background:#ff0000;width:40px;height:40px;border-radius:40px;margin:auto;"></div>
+   <div id = "yellow" style="background:#3F4A00;width:40px;height:40px;border-radius:40px    ;margin:auto"></div>
+   <div id = "greenlight" style="background:#044A00;width:40px;height:40px;border-radius:40px;margin:auto"></div>
+   <button onclick="Go()" style="width:75px;height:30px;margin:auto">Go</button>
+ </div>
+</tr>
+</table>
+<script>
+  var redlight = document.getElementById('redlight');
+  var yellowlight = document.getElementById('yellowlight');
+  var greenlight = document.getElementById('greenlight');
+  var colors = ["rgb(255, 0, 0)",'rgb(82, 2, 2)','rgb(255, 255, 0)','rgb(63, 74, 0)','rgb(0, 128, 0)','rgb(4, 74, 0)'];
+  function stop() {
+    if  (yellowlight.style.backgroundColor == colors[2])
+    {
+        yellowlight.style.backgroundColor = colors[3]; //switch off yellow
+        redlight.style.backgroundColor = colors[0];  // switch on red light
+    }
+    else if (greenlight.style.backgroundColor == colors[4]) {
+        greenlight.style.backgroundColor = colors[5]; //switch off green
+        redlight.style.backgroundColor = colors[0]; //switch on red light
+    }
+ }
+  function Ready() {
+    if  (redlight.style.backgroundColor == colors[0])
+    {
+        redlight.style.backgroundColor = colors[1]; //switch off red
+        yellowlight.style.backgroundColor = colors[2]; //switch on yellow
+    }
+    else if (greenlight.style.backgroundColor == colors[4]) {
+        greenlight.style.backgroundColor = colors[5]; //switch off green
+        yellowlight.style.backgroundColor = colors[2]; //switch on yellow
+        
+    }
+  }
+
+  function Go() {
+    if  (redlight.style.backgroundColor == colors[0])
+    {
+        redlight.style.backgroundColor = colors[1]; //switch off red
+        greenlight.style.backgroundColor = colors[4]; //switch on green
+    }
+    else if (yellowlight.style.backgroundColor == colors[2]) {
+        yellowlight.style.backgroundColor = colors[3]; //switch off yellow
+        greenlight.style.backgroundColor = colors[4]; //switch on green
+    }
+ }
+ </script>
+</body>
+</html>
